@@ -1,0 +1,66 @@
+.createEmployee {
+    max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  
+    &__title {
+        text-align: center;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        color: #003049;
+    }
+  
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    &__formGroup {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__formGroup label {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+    
+    &__formGroup input,
+    &__formGroup select {
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+    
+    &__addressFieldset {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 1rem;
+    }
+    
+    &__addressFieldset legend {
+        font-weight: bold;
+        padding: 0 0.5rem;
+        color: #003049;
+    }
+    
+    &__submitButton {
+        background-color: #003049;
+        color: white;
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    &__submitButton:hover {
+        background-color: #005f73;
+    }
+}
