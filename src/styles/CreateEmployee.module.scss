@@ -1,40 +1,42 @@
+@import './-variables.scss';
+@import './-mixins.scss';
+
 .createEmployee {
     max-width: 800px;
         margin: 2rem auto;
         padding: 2rem;
-        background-color: #fff;
+        background-color: $bg-white-color;
         border-radius: 12px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   
     &__title {
+        @include fontStyle (1.8rem, 700);
         text-align: center;
-        font-size: 1.8rem;
         margin-bottom: 2rem;
-        color: #003049;
+        color: $main-color;
     }
   
     &__form {
-        display: flex;
-        flex-direction: column;
+        @include flexContainer (column, center, stretch);
         gap: 1.5rem;
     }
     
     &__formGroup {
-        display: flex;
-        flex-direction: column;
+        @include flexContainer (column, center, stretch);
     }
     
     &__formGroup label {
-        margin-bottom: 0.5rem;
-        font-weight: 600;
+        @include fontStyle (1rem, 600);
+        margin: 0.5rem 0;
     }
     
     &__formGroup input,
     &__formGroup select {
+        @include fontStyle (1rem, 400);
         padding: 0.6rem;
         border: 1px solid #ccc;
         border-radius: 6px;
-        font-size: 1rem;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     }
     
     &__addressFieldset {
@@ -44,23 +46,23 @@
     }
     
     &__addressFieldset legend {
-        font-weight: bold;
+        @include fontStyle (1rem, 700);
         padding: 0 0.5rem;
-        color: #003049;
+        color: $main-color;
     }
     
     &__submitButton {
-        background-color: #003049;
-        color: white;
+        @include fontStyle (1rem, 400);
+        background-color: $main-color;
+        color: $white-color;
         padding: 0.8rem 1.5rem;
         border: none;
         border-radius: 6px;
-        font-size: 1rem;
         cursor: pointer;
         transition: background-color 0.3s ease;
     }
     
     &__submitButton:hover {
-        background-color: #005f73;
+        background-color: $bg-green-color;
     }
 }
