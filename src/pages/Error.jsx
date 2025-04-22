@@ -12,16 +12,15 @@ function Error() {
 
     return (
         <>
-            <Header />
             <div className={styles.error}>
                 <p className={styles.error__404}>404</p>
-                <p className={styles.error__msg}>La page que vous demandez n&apos;existe pas</p>
+                <p className={styles.error__msg}>The requested page doesn't exist</p>
                 <nav className={styles.error__nav}>
                     <Link 
                         className={styles.error__link} 
                         to={'/'}
                         >
-                        Retourner sur la page d&apos;accueil
+                        Go back to Home page
                     </Link>
                 </nav>
             </div>

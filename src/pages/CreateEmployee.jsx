@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addEmployee } from '../redux/employeeSlice'
 import styles from '../styles/CreateEmployee.module.scss'
 import {states, departments} from '../data/data.js'
-
 
 function CreateEmployee () {
 
   const navigate = useNavigate()
+
+  const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -22,24 +25,11 @@ function CreateEmployee () {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-  };
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const employees = JSON.parse(localStorage.getItem('employees')) || [];
-    const employee = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        birthDate: formData.birthDate,
-        startDate: formData.startDate,
-        department: formData.department,
-        street: formData.street,
-        city: formData.city,
-        state: formData.state,
-        zipCode: formData.zipCode
-    };
-    employees.push(employee);
-    localStorage.setItem('employees', JSON.stringify(employees));
+    dispatch(addEmployee(formData))
     navigate("/employees")
   }
 

@@ -1,47 +1,51 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react'
+import { useSelector } from 'react-redux'
 import styles from '../styles/EmployeeList.module.scss'
 
 function EmployeeList() {
 
-  const [searchTerm, setSearchTerm] = useState('');
-  const [entriesPerPage, setEntriesPerPage] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
+  const options = [2, 10, 25, 50, 100]
 
-  const employees = JSON.parse(localStorage.getItem('employees'));
+  const [search, setSearch] = useState('')
+  const [entries, setEntries] = useState(10)
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const employees = useSelector((state) => state.employees.employeeList)
 
   const filteredEmployees = useMemo(() => {
-    return employees.filter(emp => {
-      const values = Object.values(emp).join(' ').toLowerCase();
-      return values.includes(searchTerm.toLowerCase());
-    });
-  }, [employees, searchTerm]);
+    return employees.filter(empl => {
+      const values = Object.values(empl).join(' ').toLowerCase()
+      return values.includes(search.toLowerCase())
+    })
+  }, [employees, search])
     
-  const totalPages = Math.ceil(filteredEmployees.length / entriesPerPage);
+  const totalPages = Math.ceil(filteredEmployees.length / entries)
+  
   const paginatedEmployees = filteredEmployees.slice(
-    (currentPage - 1) * entriesPerPage,
-    currentPage * entriesPerPage
-  );
+    (currentPage - 1) * entries,
+    currentPage * entries
+  )
 
   const handleEntriesChange = (e) => {
-    setEntriesPerPage(Number(e.target.value));
-    setCurrentPage(1);
-  };
+    setEntries(Number(e.target.value))
+    setCurrentPage(1)
+  }
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-    setCurrentPage(1);
-  };
+    setSearch(e.target.value)
+    setCurrentPage(1)
+  }
 
   const handlePrev = () => {
-    if (currentPage > 1) setCurrentPage(prev => prev - 1);
-  };
+    if (currentPage > 1) setCurrentPage(prev => prev - 1)
+  }
 
   const handleNext = () => {
-    if (currentPage < totalPages) setCurrentPage(prev => prev + 1);
-  };
+    if (currentPage < totalPages) setCurrentPage(prev => prev + 1)
+  }
 
-  const startIndex = (currentPage - 1) * entriesPerPage + 1;
-  const endIndex = Math.min(startIndex + entriesPerPage - 1, filteredEmployees.length);
+  const startIndex = (currentPage - 1) * entries + 1
+  const endIndex = Math.min(startIndex + entries - 1, filteredEmployees.length)
 
   return (
     <div className={styles.employeeList}>
@@ -50,12 +54,10 @@ function EmployeeList() {
       <div className={styles.employeeList__controls}>
         <label htmlFor="entries">
           Show&nbsp;
-          <select id="entries" value={entriesPerPage} onChange={handleEntriesChange}>
-            <option value={5}>5</option>
-            <option value={10}>10</option>
-            <option value={25}>25</option>
-            <option value={50}>50</option>
-            <option value={100}>100</option>
+          <select id="entries" value={entries} onChange={handleEntriesChange}>
+            {options.map(n => (
+              <option key={n} value={n}>{n}</option>
+            ))}
           </select>
           &nbsp;entries
         </label>
@@ -65,7 +67,7 @@ function EmployeeList() {
           <input
             type="text"
             id="search" 
-            value={searchTerm}
+            value={search}
             onChange={handleSearchChange}
             className={styles.employeeList__searchInput}
           />
@@ -84,7 +86,7 @@ function EmployeeList() {
                   <th>Last Name</th>
                   <th>Start Date</th>
                   <th>Department</th>
-                  <th>Date of Birth</th>
+                  <th>Birth Date</th>
                   <th>Street</th>
                   <th>City</th>
                   <th>State</th>
@@ -122,7 +124,7 @@ function EmployeeList() {
         </>
       )}
     </div>
-  );
+  )
 }
 
 export default EmployeeList
