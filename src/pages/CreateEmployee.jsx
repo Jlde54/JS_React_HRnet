@@ -4,18 +4,23 @@ import { useDispatch } from 'react-redux'
 import { addEmployee } from '../redux/employeeSlice'
 import styles from '../styles/CreateEmployee.module.scss'
 import {states, departments} from '../data/data.js'
+// Plug-ins
+import DatePicker from "react-multi-date-picker"
+import Select from 'react-select'
+import Modal from 'react-modal'
+
+Modal.setAppElement('#root')
 
 function CreateEmployee () {
 
   const navigate = useNavigate()
-
   const dispatch = useDispatch()
 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    birthDate: "",
-    startDate: "",
+    birthDate: null,
+    startDate: null,
     street: "",
     city: "",
     state: "",
@@ -23,19 +28,44 @@ function CreateEmployee () {
     department: ""
   })
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+
+  function handleChange (name, value) {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
   }
 
-  const handleSubmit = (e) => {
+  function handleSubmit (e) {
     e.preventDefault()
     dispatch(addEmployee(formData))
-    navigate("/employees")
+    setModalIsOpen(true)
   }
+
+  function closeModalAndRedirect () {
+    setModalIsOpen(false)
+    navigate("/Employees")
+  }
+
+  const stateSelect = states.map((state) => ({ value: state.abbreviation, label: state.name }))
+  const deptSelect = departments.map((dept) => ({ value: dept, label: dept }))
 
   return (
     <div className={styles.createEmployee}>
       <h2 className={styles.createEmployee__title}>Create Employee</h2>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={() => setModalIsOpen(false)}
+        contentLabel="Employee Created Modal"
+        className={styles.createEmployee__modal}
+        overlayClassName={styles.createEmployee__modalOverlay}
+      >
+        <button className={styles.createEmployee__modalClose} onClick={closeModalAndRedirect}>×</button>
+        <p>Employee created!</p>
+      </Modal>
+
       <form className={styles.createEmployee__form} onSubmit={handleSubmit}>
           <div className={styles.createEmployee__formGroup}>
             <label htmlFor="firstname">First Name</label>
@@ -44,7 +74,7 @@ function CreateEmployee () {
               id="firstname"
               name="firstName" 
               value={formData.firstName} 
-              onChange={handleChange} 
+              onChange={(e) => handleChange(e.target.name, e.target.value)}
               required />
           </div>
 
@@ -55,30 +85,30 @@ function CreateEmployee () {
               id="lastname"
               name="lastName" 
               value={formData.lastName} 
-              onChange={handleChange} 
+              onChange={(e) => handleChange(e.target.name, e.target.value)}
               required />
           </div>
 
           <div className={styles.createEmployee__formGroup}>
             <label htmlFor="birthDate">Date of Birth</label>
-            <input 
-              type="date" 
+            <DatePicker
               id="birthDate"
-              name="birthDate" 
-              value={formData.birthDate} 
-              onChange={handleChange} 
-              required />
+              value={formData.birthDate}
+              onChange={(date) => handleChange("birthDate", date.format("YYYY-MM-DD"))}
+              format="YYYY-MM-DD"
+              required
+            />
           </div>
 
           <div className={styles.createEmployee__formGroup}>
             <label htmlFor="startDate">Start Date</label>
-            <input 
-              type="date" 
-              id="startDate" 
-              name="startDate" 
-              value={formData.startDate} 
-              onChange={handleChange} 
-              required />
+            <DatePicker
+              id="startDate"
+              value={formData.startDate}
+              onChange={(date) => handleChange("startDate", date.format("YYYY-MM-DD"))}
+              format="YYYY-MM-DD"
+              required
+            />
           </div>
 
           <fieldset className={styles.createEmployee__addressFieldset}>
@@ -90,7 +120,7 @@ function CreateEmployee () {
                 id="street"
                 name="street" 
                 value={formData.street} 
-                onChange={handleChange} 
+                onChange={(e) => handleChange(e.target.name, e.target.value)}
                 required />
             </div>
 
@@ -101,23 +131,18 @@ function CreateEmployee () {
                 id="city"
                 name="city" 
                 value={formData.city} 
-                onChange={handleChange} 
+                onChange={(e) => handleChange(e.target.name, e.target.value)}
                 required />
             </div>
 
             <div className={styles.createEmployee__formGroup}>
               <label htmlFor="state">State</label>
-              <select 
-                id="state"
-                name="state" 
-                value={formData.state} 
-                onChange={handleChange} 
-                required>
-                  <option value="">-- Choose a state --</option>
-                  {states.map((state) => (
-                    <option key={state.name} value={state.name}>{state.name}</option>
-                    ))}
-              </select>
+              <Select
+                inputId="state"
+                options={stateSelect}
+                onChange={(select) => handleChange("state", select.value)}
+                value={stateSelect.find(opt => opt.value === formData.state)}
+              />
             </div>
 
             <div className={styles.createEmployee__formGroup}>
@@ -127,24 +152,19 @@ function CreateEmployee () {
                 id="zipCode"
                 name="zipCode" 
                 value={formData.zipCode} 
-                onChange={handleChange} 
+                onChange={(e) => handleChange(e.target.name, e.target.value)}
                 required />
             </div>
           </fieldset>
 
           <div className={styles.createEmployee__formGroup}>
             <label htmlFor="department">Department</label>
-            <select
-              id="department"
-              name="department" 
-              value={formData.department} 
-              onChange={handleChange} 
-              required>
-                <option value="">-- Choose a department --</option>
-                {departments.map((dept) => (
-                  <option key={dept} value={dept}>{dept}</option>
-                ))}
-            </select>
+            <Select
+                inputId="department"
+                options={deptSelect}
+                onChange={(select) => handleChange("department", select.value)}
+                value={deptSelect.find(opt => opt.value === formData.department)}
+              />
         </div>
         <button className={styles.createEmployee__submitButton} type="submit">Save</button>
       </form>

@@ -4,7 +4,7 @@ import styles from '../styles/Header.module.scss'
 function Header () {
   const location = useLocation()
   const isOnCreateEmployee = location.pathname === '/'
-  const isOnEmployeeList = location.pathname === '/employees'
+  const isOnEmployeeList = location.pathname === '/Employees'
   return (
     <header className={styles.header}>
       <div className={styles.header__container}>
@@ -14,7 +14,7 @@ function Header () {
             <Link to='/' className={styles.header__link}>Home</Link>
           )}
           {isOnCreateEmployee && (
-            <Link to='/employees' className={styles.header__link}>View current employees</Link>
+            <Link to='/Employees' className={styles.header__link}>View current employees</Link>
           )}
         </nav>
       </div>

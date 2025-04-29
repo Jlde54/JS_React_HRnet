@@ -65,4 +65,30 @@
     &__submitButton:hover {
         background-color: $bg-green-color;
     }
+    &__modal {
+        background: $main-color;
+        color: $white-color;
+        padding: 2rem;
+        border-radius: 1rem;
+        width: 300px;
+        text-align: center;
+        position: relative;
+    }
+    &__modalOverlay {
+        @include flexContainer (column, center, center);
+        background: rgba(0, 0, 0, 0.4);
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+    }
+    &__modalClose {
+        color: $white-color;
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
 }
