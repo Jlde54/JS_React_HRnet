@@ -5,7 +5,7 @@ import { addEmployee } from '../redux/employeeSlice'
 import styles from '../styles/CreateEmployee.module.scss'
 import {states, departments} from '../data/data.js'
 // Plug-ins
-import DatePicker from "react-multi-date-picker"
+import DatePicker from 'react-multi-date-picker'
 import Select from 'react-select'
 import Modal from 'react-modal'
 

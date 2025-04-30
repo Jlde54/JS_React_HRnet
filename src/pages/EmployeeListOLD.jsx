@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useSelector } from 'react-redux'
-import styles from '../styles/EmployeeList.module.scss'
+import styles from '../styles/EmployeeListOLD.module.scss'
 
 function EmployeeList() {
 

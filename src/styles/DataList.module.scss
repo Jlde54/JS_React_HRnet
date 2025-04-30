@@ -4,7 +4,7 @@
     padding: 2rem;
     background-color: #fff;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   
     &__title {
       text-align: center;
@@ -18,6 +18,8 @@
       flex-direction: row;
       justify-content: space-between;
       margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
   
     &__empty {
@@ -31,6 +33,7 @@
     }
   
     &__table {
+      min-width: 800px;
       width: 100%;
       border-collapse: collapse;
       font-size: 0.95rem;
@@ -39,6 +42,7 @@
         padding: 0.75rem 1rem;
         text-align: left;
         border-bottom: 1px solid #ddd;
+        white-space: nowrap;
       }
   
       th {
@@ -51,10 +55,42 @@
       }
     }
 
+    &__th {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.3rem;
+    }
+  
+    &__columnTitle {
+      font-weight: inherit;
+    }
+  
+    &__sortIcons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      color: rgb(176, 174, 174);
+    }
+  
+    &__triangle {
+      line-height: 0.8;
+    }
+  
+    &__triangle.active {
+      color: #0f6aee;
+      font-weight: bold;
+    }
+  
     &__footer {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       margin-top: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
   }

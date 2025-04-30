@@ -112,7 +112,28 @@ function DataList({
               <thead>
                 <tr>
                 {columns.map(col => (
-                    <th key={col.property}>{col.title}</th>
+                    <th 
+                      key={col.property}
+                      onClick={() => requestSort(col.property)}
+                      // className={styles.dataList__th}
+                    >
+                      <div className={styles.dataList__th}>
+                        <div className={styles.dataList__columnTitle}>{col.title}</div>
+                        <div className={styles.dataList__sortIcons}>
+                          <div
+                            className={`${styles.dataList__triangle} ${sortParam.key === col.property && sortParam.direction === 'asc' ? styles.active : ''
+                            }`}
+                          > ▲
+                          </div>
+                          <div
+                            className={`${styles.dataList__triangle} ${
+                            sortParam.key === col.property && sortParam.direction === 'desc' ? styles.active : ''
+                            }`}
+                          > ▼
+                          </div>
+                        </div>
+                      </div>
+                    </th>
                   ))}
                 </tr>
               </thead>
