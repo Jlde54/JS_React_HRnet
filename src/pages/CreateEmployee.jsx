@@ -138,6 +138,7 @@ function CreateEmployee () {
             <div className={styles.createEmployee__formGroup}>
               <label htmlFor="state">State</label>
               <Select
+                className={styles.createEmployee__formGroup_select}
                 inputId="state"
                 options={stateSelect}
                 onChange={(select) => handleChange("state", select.value)}
@@ -160,6 +161,7 @@ function CreateEmployee () {
           <div className={styles.createEmployee__formGroup}>
             <label htmlFor="department">Department</label>
             <Select
+                className={styles.createEmployee__formGroup_select}
                 inputId="department"
                 options={deptSelect}
                 onChange={(select) => handleChange("department", select.value)}

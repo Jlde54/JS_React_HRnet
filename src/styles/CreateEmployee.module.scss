@@ -30,8 +30,15 @@
         margin: 0.5rem 0;
     }
     
-    &__formGroup input,
-    &__formGroup select {
+    &__formGroup input {
+        @include fontStyle (1rem, 400);
+        padding: 0.6rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    &__formGroup_select {
         @include fontStyle (1rem, 400);
         padding: 0.6rem;
         border: 1px solid #ccc;
