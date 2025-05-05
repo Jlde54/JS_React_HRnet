@@ -13,7 +13,7 @@
     "@reduxjs/toolkit": "^2.6.1",
     "prop-types": "^15.8.1",
     "react": "^19.0.0",
-    "react-datalist-jld": "^1.0.3",
+    "react-datalist-jld": "^1.0.4",
     "react-datepicker": "^8.3.0",
     "react-dedux": "^0.4.0-beta.4",
     "react-dom": "^19.0.0",

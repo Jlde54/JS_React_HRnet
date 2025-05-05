@@ -6,6 +6,13 @@ import Error from './pages/Error.jsx'
 import './styles/App.module.scss'
 import Employees from './components/Employees.jsx'
 
+/**
+ * Main application routing using React Router.
+ * Includes CreateEmployee, Employees, and Error pages.
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
 function App() {
 
   const ROUTES = {

@@ -1,7 +1,13 @@
 import { useSelector } from 'react-redux'
-// import DataList from './DataList.jsx'
 import DataList from 'react-datalist-jld'
 
+/**
+ * Page displaying the employee list.
+ * Renders data using react-datalist-jld.
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
 function Employees() {
   const employees = useSelector((state) => state.employees.employeeList)
 

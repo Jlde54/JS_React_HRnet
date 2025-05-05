@@ -11,6 +11,13 @@ import Modal from 'react-modal'
 
 Modal.setAppElement('#root')
 
+/**
+ * Employee creation form.
+ * Uses react-multi-date-picker, react-select, and react-modal.
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
 function CreateEmployee () {
 
   const navigate = useNavigate()
