@@ -1,7 +1,19 @@
 # HRnet - React Application
 
-HRnet is an employee management application built with **React**, **Redux Toolkit**, and **Vite**. 
+HRnet is an employee management application previouly built with jQuery and rebuilt with **React**, **Redux Toolkit**, and **Vite**.  
 It allows creating and viewing employee records within a company.
+
+# Previous application in jQuery
+
+Repository: https://github.com/OpenClassrooms-Student-Center/P12_Front-end
+
+Issues: https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues
+
+# Converted application in React
+
+Repository: https://github.com/Jlde54/JS_React_HRnet
+
+Plug-in react-datalist: https://github.com/Jlde54/react-datalist
 
 # Features
 
@@ -13,43 +25,50 @@ It allows creating and viewing employee records within a company.
 
 # Structure
 
-src/
-├── components/ => UI components (Header, Footer, Employees)
-├── pages/ => Main pages (CreateEmployee, Error)
-├── redux/ => Redux slice & store
-├── styles/ => SCSS files
-├── data/ => Static data (States, Departments)
-├── App.jsx => Routing setup
-├── main.jsx => React entry point
-public/
-index.html => Main HTML file
+src/  
+├── components/ => UI components (Header, Footer, Employees)  
+├── pages/ => Main pages (CreateEmployee, Error)  
+├── redux/ => Redux slice & store (employeeSlice, store)  
+├── styles/ => SCSS files  
+├── data/ => Static data (States, Departments)  
+├── App.jsx => Routing setup  
+├── main.jsx => React entry point  
+public/  
+index.html => Main HTML file  
 
 # Installation
 
-1. Clone the repository:
-    git clone https://github.com/your-repo/hrnet.git
-    cd hrnet
+1. Install NodeJS : [NodeJS](https://nodejs.org/en/download)
 
-2. Install dependencies:
+2. Clone the repository:
+    git clone https://github.com/Jlde54/JS_React_HRnet  
+    cd JS_React_HRnet
+
+3. Install dependencies:
     npm install
 
-3. Run the app:
+4. Run the app:
     npm run dev
 
-4. Open http://localhost:5173 in your browser.
+5. Open http://localhost:5173 in your browser.
 
 # Dependencies
 
-React
-Redux Toolkit
-React Router
-react-select
-react-multi-date-picker
-react-datalist-jld
+- React
+- Redux Toolkit
+- React Router
+- Sass
+- react-select
+- react-multi-date-picker
+- react-datalist-jld
 
 # Build
 
 npm run build
+
+# Performance: lighthouse analysis
+
+createEmployee jQuery: 
 
 # License
 

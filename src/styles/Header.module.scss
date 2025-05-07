@@ -1,6 +1,9 @@
+@use './-variables' as *;
+@use './-mixins' as *;
+
 .header {
-    background-color: #003049;
-    color: #fff;
+    background-color: $main-color;
+    color: $white-color;
     padding: 1rem 0;
   
     &__container {
@@ -22,7 +25,7 @@
     }
   
     &__link {
-      color: white;
+      color: $white-color;
       text-decoration: none;
       font-weight: 500;
   

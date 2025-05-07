@@ -1,11 +1,14 @@
+@use './-variables' as *;
+@use './-mixins' as *;
+
 .footer {
-    background-color: #003049;
-    color: #fff;
+    background-color: main-color;
+    color: $white-color;
     text-align: center;
     padding: 1rem;
   
     &__text {
+      @include fontStyle (0.9rem, 700);
       margin: 0;
-      font-size: 0.9rem;
     }
   }
