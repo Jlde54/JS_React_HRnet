@@ -23,7 +23,6 @@ function App() {
 
   return (
     <>
-      <Router>
         <Header />
           <Routes>
             <Route path={ROUTES.CREATEEMPLOYEE} element={<CreateEmployee />}/>
@@ -31,7 +30,6 @@ function App() {
             <Route path={ROUTES.ERROR} element={<Error />} />
           </Routes>
         <Footer />
-      </Router>
     </>
   )
 }
