@@ -13,6 +13,8 @@ Issues: https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues
 
 Repository: https://github.com/Jlde54/JS_React_HRnet
 
+GitHub pages : https://jlde54.github.io/JS_React_HRnet/
+
 Plug-in react-datalist: https://github.com/Jlde54/react-datalist
 
 # Features
@@ -27,13 +29,13 @@ Plug-in react-datalist: https://github.com/Jlde54/react-datalist
 
 src/  
 ├── components/ => UI components (Header, Footer, Employees)  
+├── data/ => Static data (States, Departments)  
 ├── pages/ => Main pages (CreateEmployee, Error)  
+├── performance-reports/ => Lighthouse reports (jQuery, react)  
 ├── redux/ => Redux slice & store (employeeSlice, store)  
 ├── styles/ => SCSS files  
-├── data/ => Static data (States, Departments)  
 ├── App.jsx => Routing setup  
 ├── main.jsx => React entry point  
-public/  
 index.html => Main HTML file  
 
 # Installation
@@ -59,6 +61,7 @@ index.html => Main HTML file
 - React Router
 - Sass
 - react-select
+- react-modal
 - react-multi-date-picker
 - react-datalist-jld
 
@@ -66,9 +69,16 @@ index.html => Main HTML file
 
 npm run build
 
-# Performance: lighthouse analysis
+# Performance: Lighthouse analysis
 
-createEmployee jQuery: 
+The repository "performance-reports" contains the Lighthouse pdf reports allowing to compare the performance of each page in the old and the new applications.  
+
+It also contains the .json files showing the visuals of the performance status.  
+Open the .json files with : https://googlechrome.github.io/lighthouse/viewer/ and select the file.  
+
+The page creating new employee has a performance of 90% with jQuery against 98% with React.  
+
+The page listing the employees has a performance of 98% with jQuery against 98% with React.
 
 # License
 
