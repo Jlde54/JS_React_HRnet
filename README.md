@@ -5,17 +5,17 @@ It allows creating and viewing employee records within a company.
 
 # Previous application in jQuery
 
-Repository: https://github.com/OpenClassrooms-Student-Center/P12_Front-end
+Repository : https://github.com/OpenClassrooms-Student-Center/P12_Front-end
 
-Issues: https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues
+Issues : https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues
 
 # Converted application in React
 
-Repository: https://github.com/Jlde54/JS_React_HRnet
+Repository : https://github.com/Jlde54/JS_React_HRnet
 
 GitHub pages : https://jlde54.github.io/JS_React_HRnet/
 
-Plug-in react-datalist: https://github.com/Jlde54/react-datalist
+Plug-in react-datalist : https://github.com/Jlde54/react-datalist
 
 # Features
 
@@ -42,14 +42,14 @@ index.html => Main HTML file
 
 1. Install NodeJS : [NodeJS](https://nodejs.org/en/download)
 
-2. Clone the repository:
+2. Clone the repository :  
     git clone https://github.com/Jlde54/JS_React_HRnet  
     cd JS_React_HRnet
 
-3. Install dependencies:
+3. Install dependencies :
     npm install
 
-4. Run the app:
+4. Run the app :
     npm run dev
 
 5. Open http://localhost:5173 in your browser.
@@ -71,14 +71,14 @@ npm run build
 
 # Performance: Lighthouse analysis
 
-The repository "performance-reports" contains the Lighthouse pdf reports allowing to compare the performance of each page in the old and the new applications.  
+- The repository "performance-reports" contains the Lighthouse pdf reports allowing to compare the performance of each page in the old and the new applications.  
 
-It also contains the .json files showing the visuals of the performance status.  
+- It also contains the .json files showing the visuals of the performance status.  
 Open the .json files with : https://googlechrome.github.io/lighthouse/viewer/ and select the file.  
 
-The page creating new employee has a performance of 90% with jQuery against 98% with React.  
+- The page creating new employee has a performance of 90% with jQuery against 98% with React.  
 
-The page listing the employees has a performance of 98% with jQuery against 98% with React.
+- The page listing the employees has a performance of 98% with jQuery against 98% with React.
 
 # License
 
