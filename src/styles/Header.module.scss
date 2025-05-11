@@ -13,10 +13,19 @@
       max-width: 960px;
       margin: auto;
       padding: 0 1rem;
+      position: relative;
     }
   
     &__logo {
-      height: 40px;
+      height: 60px;
+    }
+
+    &__title {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.8rem;
+      font-weight: bold;
     }
   
     &__nav {
