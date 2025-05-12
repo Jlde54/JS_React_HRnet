@@ -2,44 +2,53 @@
 @use './-mixins' as *;
 
 .header {
-    background-color: $main-color;
-    color: $white-color;
-    padding: 1rem 0;
-  
-    &__container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 960px;
-      margin: auto;
-      padding: 0 1rem;
-      position: relative;
-    }
-  
-    &__logo {
-      height: 60px;
-    }
+  background-color: $main-color;
+  color: $white-color;
+  padding: 1rem 0;
 
-    &__title {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-  
-    &__nav {
-      display: flex;
-      gap: 1.5rem;
-    }
-  
-    &__link {
-      color: $white-color;
-      text-decoration: none;
-      font-weight: 500;
-  
-      &:hover {
-        text-decoration: underline;
-      }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 960px;
+    margin: auto;
+    padding: 0 1rem;
+    position: relative;
+  }
+
+  &__logo {
+    height: 60px;
+  }
+
+  &__title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__link {
+    color: $white-color;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: right; 
+
+    &:hover {
+      text-decoration: underline;
     }
   }
+}
+
+@media (max-width: 480px) {
+  .header {
+    &__link {
+      max-width: 80px;
+    }
+  }
+}
