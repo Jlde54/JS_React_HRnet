@@ -23,7 +23,7 @@ Plug-in react-datalist : https://github.com/Jlde54/react-datalist
 - Current employees list with filtering, sorting, and pagination
 - Local data persistence using `localStorage`
 - Navigation via React Router
-- Use of third-party components (`react-modal`, `react-select`, `react-multi-date-picker`, `react-datalist-jld`)
+- Use of third-party components ([ react-modal ](https://www.npmjs.com/package/react-modal), [react-select ](https://www.npmjs.com/package/react-select), [react-multi-date-picker ](https://www.npmjs.com/package/react-multi-date-picker), [react-datalist-jld ](https://www.npmjs.com/package/react-datalist-jld))
 
 # Structure
 
