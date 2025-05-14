@@ -76,9 +76,12 @@ npm run build
 - It also contains the .json files showing the visuals of the performance status.  
 Open the .json files with : https://googlechrome.github.io/lighthouse/viewer/ and select the file.  
 
+- The .har files are also added in order to show the network calls performances (HTTP requests, response sizes, and load times).  
+Open the .har files with : https://openreplay.com/tools/har-file-viewer/
+
 - The page creating new employee has a performance of 90% with jQuery against 98% with React.  
 
-- The page listing the employees has a performance of 98% with jQuery against 98% with React.
+- The page listing the employees has a performance of 96% with jQuery against 98% with React.
 
 # License
 
